@@ -4,9 +4,8 @@ def checkfirst(sum, qty, nlist):
     if not len(nlist):
         return 0
     if (qty == 3):
-        for n in nlist[1:]:
-            if prod := checkfirst(sum-a, 2, nlist[1:]):
-                return a*prod
+        if prod := checkfirst(sum-a, 2, nlist[1:]):
+            return a*prod
         return checkfirst(sum, 3, nlist[1:])
     else:
         for n in nlist[1:]:
