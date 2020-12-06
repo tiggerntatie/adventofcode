@@ -19,8 +19,6 @@ fields = ["byr","iyr", "eyr", "hgt", "hcl", "ecl", "pid", "cid"]
 
 tempfields = fields[::]
 tempfields.remove("cid")
-print(fields)
-print(tempfields)
 
 data = [
     "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd",
@@ -47,7 +45,7 @@ for record in data:
             subfield = prog.search(field)
             passdict[subfield.groups()[0]] = subfield.groups()[1]
     else:
-        if len(passdict) >= len(tempfields):
+        if all([x in passdict for x in tempfields]):
             count += 1
         passdict = {}
 
