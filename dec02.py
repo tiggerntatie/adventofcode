@@ -9,7 +9,7 @@ import re
 
 count = 0
 prog = re.compile("(\d+)-(\d+) (\S): (\S+)")
-with file("dec02.txt") as f:
+with open("dec02.txt") as f:
     pwds = f.readlines()
     for p in pwds:
         m = prog.search(p).groups()
