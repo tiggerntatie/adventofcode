@@ -7,7 +7,7 @@ def checkfirst(sum, qty, nlist):
         for n in nlist[1:]:
             if prod := checkfirst(sum-a, 2, nlist[1:]):
                 return a*prod
-        return checkfirst(2020, 3, nlist[1:])
+        return checkfirst(sum, 3, nlist[1:])
     else:
         for n in nlist[1:]:
             if a+n == sum:
