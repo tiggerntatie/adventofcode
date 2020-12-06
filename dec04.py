@@ -94,7 +94,7 @@ def validheight(s):
     if f:
         unit = f.groups()[1]
         value = int(f.groups()[0])
-        return (unit == "cm" and 150 <= value <= 193) or (59 <= value <= 76)
+        return (unit == "cm" and (150 <= value <= 193)) or (59 <= value <= 76)
     else:
         return False
 
