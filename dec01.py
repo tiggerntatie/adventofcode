@@ -1,5 +1,5 @@
 # Advent of code 01
-checkfirst(nlist):
+def checkfirst(nlist):
     a = nlist[0]
     if not len(nlist):
         return 0
