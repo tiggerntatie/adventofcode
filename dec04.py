@@ -48,9 +48,11 @@ for record in data:
             subfield = prog.search(field)
             passdict[subfield.groups()[0]] = subfield.groups()[1]
     else:
-        print(passdict.keys())
+        print(passdict.keys(), end="")
         if all([x in passdict for x in tempfields]):
             count += 1
+            print("***", end="")
+        print()
         passdict = {}
 
 print(count)
