@@ -36,6 +36,11 @@ data = [
     "iyr:2011 ecl:brn hgt:59in"
 ]
 
+def finishrecord(d):
+    return 1 if all([x in d for x in tempfields]) else 0
+
+    
+
 with open("dec04.txt") as f:
     data = f.readlines()
 
@@ -48,12 +53,9 @@ for record in data:
             subfield = prog.search(field)
             passdict[subfield.groups()[0]] = subfield.groups()[1]
     else:
-        print(passdict.keys(), end="")
-        if all([x in passdict for x in tempfields]):
-            count += 1
-            print("***", end="")
-        print()
+        count += finishrecord(passdict)
         passdict = {}
+count += finishrecord(passdict)
 
 print(count)
 
