@@ -22,3 +22,4 @@ with open("dec02.txt") as f:
         if (m[3][a-1] == m[2]) != (m[3][b-1] == m[2]):
             count += 1
 print(count)
+print(count2)
