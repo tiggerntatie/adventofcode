@@ -43,6 +43,6 @@ for record in data:
         fields = record.split()
         for field in fields:
             subfield = prog.search(field)
-            print(subfield.groups()[1], subfield.groups()[2])
+            print(subfield.groups()[0], subfield.groups()[1])
             
 
