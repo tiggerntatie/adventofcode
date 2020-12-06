@@ -22,12 +22,13 @@ with open("dec05.txt") as f:
 
 ids = []
 idmap = [False]*1024
-for n, bp in enumerate(data):
+for bp in data:
     row, col, id = seatinfo(bp)
     ids.append(id)
-    idmap[n] = True
+    idmap[bp] = True
     
 print(max(ids))
+print(idmap)
 
 empty = True
 for id in range(1024):
