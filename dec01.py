@@ -16,7 +16,7 @@ def checkfirst(sum, qty, nlist):
 
 with open("dec01.txt") as f:
     nums = [int(x) for x in f.readlines()]
-    print("day 1": checkfirst(2020, 2, nums))
+    print("day 1: ", checkfirst(2020, 2, nums))
 
     
     
