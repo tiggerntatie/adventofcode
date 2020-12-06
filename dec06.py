@@ -18,6 +18,9 @@ data = [
     "b"
 ]
 
+for open("dec06.txt") as f:
+    data = f.readlines()
+
 group = []
 groups = []
 for person in data:
