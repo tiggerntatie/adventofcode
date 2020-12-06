@@ -21,8 +21,18 @@ with open("dec05.txt") as f:
     data = f.readlines()
 
 ids = []
-for bp in data:
+idmap = [False]*1024
+for n, bp in enumerate(data):
     row, col, id = seatinfo(bp)
     ids.append(id)
+    idmap[n] = True
     
 print(max(ids))
+
+empty = True
+for id in range(1024):
+    if empty and idmap[id]:
+        empty = False
+    elif not empty and not idmap[id]:
+        print(id)
+        break
