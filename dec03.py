@@ -24,7 +24,8 @@ slopes = ((1,1),(3,1),(5,1),(7,1),(1,2))
 
 with open("dec03.txt") as f:
     data = f.readlines()
-    
+
+prod = 1
 w = len(data[0])
 for xstep, ystep in slopes:
     y = 0
@@ -35,5 +36,6 @@ for xstep, ystep in slopes:
             count += 1
         x += xstep
         y += ystep
-    
-print(count)
+    prod *= count
+
+print(prod)
