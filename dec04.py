@@ -38,11 +38,18 @@ data = [
     "iyr:2011 ecl:brn hgt:59in"
 ]
 
+passdict = {}
+count = 0
 for record in data:
     if record:
         fields = record.split()
         for field in fields:
             subfield = prog.search(field)
-            print(subfield.groups()[0], subfield.groups()[1])
-            
+            passdict[subfield.groups()[0]] = subfield.groups()[1]
+    else:
+        if len(passdict) >= tempfields:
+            count += 1
+        passdict = {}
+
+print(count)
 
