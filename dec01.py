@@ -9,6 +9,6 @@ def checkfirst(nlist):
     return checkfirst(nlist[1:])
 
 with open("dec01.txt") as f:
-    nums = [int x for x in readlines(f)]
+    nums = [int(x) for x in readlines(f)]
     print(checkfirst(nums))
     
