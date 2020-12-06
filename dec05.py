@@ -25,7 +25,7 @@ idmap = [False]*1024
 for bp in data:
     row, col, id = seatinfo(bp)
     ids.append(id)
-    idmap[bp] = True
+    idmap[id] = True
     
 print(max(ids))
 print(idmap)
