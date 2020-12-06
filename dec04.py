@@ -101,10 +101,12 @@ def finishrecord(d):
     if all([x in d for x in tempfields]):
         # Further validation
         for k,v in d.items():
+            if k == "eyr" and v == "1967:
+                print (k == "eyr" and not (2020 <= int(v) <= 2030))
             if (
-                (k == "byr" and not 1920 <= int(v) <= 2002) or
-                (k == "iyr" and not 2010 <= int(v) <= 2020) or
-                (k == "eyr" and not 2020 <= int(v) <= 2030) or
+                (k == "byr" and not (1920 <= int(v) <= 2002)) or
+                (k == "iyr" and not (2010 <= int(v) <= 2020)) or
+                (k == "eyr" and not (2020 <= int(v) <= 2030)) or
                 (k == "hgt" and not validheight(v)) or
                 (k == "hcl" and not hclval.search(v)) or
                 (k == "ecl" and not v in ["amb","blu","brn","gry","grn","hzl","oth"]) or
@@ -112,6 +114,7 @@ def finishrecord(d):
                 ):  
                 return 0
             else:
+                print(d)
                 return 1
     else:
         return 0
