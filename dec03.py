@@ -12,9 +12,8 @@ data = ["..##.......",
 "#...##....#",
 ".#..#...#.#"]
 
-def charat(forest, x, y):
-    w = len(forest[0])
-    return forest[y][x%w]
+with open("dec03.txt") as f:
+    data = f.readlines()
     
 xstep = 3
 ystep = 1
