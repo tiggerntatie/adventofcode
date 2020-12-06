@@ -14,6 +14,6 @@ with open("dec02.txt") as f:
     for p in pwds:
         m = prog.search(p).groups()
         c = m[3].count(m[2])
-        if m[0] <= c <= m[1]:
+        if int(m[0]) <= c <= int(m[1]):
             count += 1
 print(count)
