@@ -17,4 +17,12 @@ def seatinfo(bpass):
     id = row*8 + col
     return row, col, id
 
-print(seatinfo(data[0]))
+with open("dec05.txt") as f:
+    data = f.readlines()
+
+ids = []
+for bp in data:
+    row, col, id = seatinfo(bp)
+    ids.append(id)
+    
+print(max(ids))
