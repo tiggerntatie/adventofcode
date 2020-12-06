@@ -28,4 +28,12 @@ for person in data:
         group = []
 groups.append(group)
 
-print(groups)
+total = 0
+for group in groups:
+    groupset = set()
+    for person in group:
+        for q in person:
+            groupset.add(q)
+    total += len(groupset)
+    
+print(total)
