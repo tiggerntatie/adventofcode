@@ -1,10 +1,12 @@
 # Advent of code 01
 def checkfirst(sum, qty, nlist):
-    print(sum, qty, nlist)
+    #print(sum, qty, nlist)
     if not nlist or sum <= 0:
         return 0
     a = nlist[0]
     if (qty == 3):
+        #if len(nlist) == 150:
+        #    return 0
         if prod := checkfirst(sum-a, 2, nlist[1:]):
             return a*prod
         return checkfirst(sum, 3, nlist[1:])
