@@ -36,6 +36,9 @@ data = [
     "iyr:2011 ecl:brn hgt:59in"
 ]
 
+with open("dec04.txt") as f:
+    data = f.readlines()
+
 passdict = {}
 count = 0
 for record in data:
