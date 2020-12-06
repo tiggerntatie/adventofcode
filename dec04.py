@@ -50,6 +50,9 @@ for record in data:
     else:
         if all([x in passdict for x in tempfields]):
             count += 1
+        else:
+            if len(passdict) >= 8:
+                print("failed: ", passdict)
         passdict = {}
 
 print(count)
