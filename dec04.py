@@ -101,7 +101,7 @@ def finishrecord(d):
     if all([x in d for x in tempfields]):
         # Further validation
         for k,v in d.items():
-            if k == "eyr" and v == "1967:
+            if k == "eyr" and v == "1967":
                 print (k == "eyr" and not (2020 <= int(v) <= 2030))
             if (
                 (k == "byr" and not (1920 <= int(v) <= 2002)) or
