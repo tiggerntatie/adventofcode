@@ -15,5 +15,5 @@ with file("dec02.txt") as f:
         m = prog.search(p).groups()
         c = m[3].count(m[2])
         if m[0] <= c <= m[1]:
-            count++
+            count += 1
 print(count)
