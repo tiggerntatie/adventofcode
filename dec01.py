@@ -1,7 +1,7 @@
 # Advent of code 01
 def checkfirst(sum, qty, nlist):
     print(sum, qty, nlist)
-    if not nlist:
+    if not nlist or sum <= 0:
         return 0
     a = nlist[0]
     if (qty == 3):
