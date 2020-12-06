@@ -18,8 +18,8 @@ data = [
     "b"
 ]
 
-#with open("dec06.txt") as f:
-#    data = f.readlines()
+with open("dec06.txt") as f:
+    data = f.readlines()
 
 group = []
 groups = []
