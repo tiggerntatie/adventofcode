@@ -18,8 +18,8 @@ data = [
     "b"
 ]
 
-with open("dec06.txt") as f:
-    data = f.readlines()
+#with open("dec06.txt") as f:
+#    data = f.readlines()
 
 group = []
 groups = []
@@ -37,6 +37,15 @@ for group in groups:
     for person in group:
         for q in person:
             groupset.add(q)
+    total += len(groupset)
+    
+print(total)
+
+total = 0
+for group in groups:
+    groupset = set(list(group[0]))
+    for person in group[1:]:
+        groupset = groupset.intersection(set(list(person)))
     total += len(groupset)
     
 print(total)
