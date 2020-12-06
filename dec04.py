@@ -116,6 +116,7 @@ def finishrecord(d):
                 ):  
                 return 0
         #print(d)
+        print(len(d['pid']))
         return 1
     else:
         return 0
