@@ -8,12 +8,17 @@
 import re
 
 count = 0
+count2 = 0
 prog = re.compile("(\d+)-(\d+) (\S): (\S+)")
 with open("dec02.txt") as f:
     pwds = f.readlines()
     for p in pwds:
         m = prog.search(p).groups()
         c = m[3].count(m[2])
-        if int(m[0]) <= c <= int(m[1]):
+        a = int(m[0])
+        b = int(m[1])
+        if a <= c <= b:
+            count += 1
+        if (m[3][a-1] == m[2]) != (m[3][b-1] == m[2]):
             count += 1
 print(count)
