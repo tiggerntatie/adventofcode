@@ -78,6 +78,8 @@ def finishrecord(d):
                 (k == "pid" and not pidval.search(v))
                 ):  
                 return 0
+            else:
+                return 1
     else:
         return 0
 
