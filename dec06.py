@@ -18,7 +18,7 @@ data = [
     "b"
 ]
 
-for open("dec06.txt") as f:
+with open("dec06.txt") as f:
     data = f.readlines()
 
 group = []
