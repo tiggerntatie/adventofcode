@@ -47,7 +47,7 @@ for record in data:
             subfield = prog.search(field)
             passdict[subfield.groups()[0]] = subfield.groups()[1]
     else:
-        if len(passdict) >= tempfields:
+        if len(passdict) >= len(tempfields):
             count += 1
         passdict = {}
 
