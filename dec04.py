@@ -12,8 +12,27 @@ ecl (Eye Color)
 pid (Passport ID)
 cid (Country ID)
 """
+
+## Part 2 validation:
+
+"""
+byr (Birth Year) - four digits; at least 1920 and at most 2002.
+iyr (Issue Year) - four digits; at least 2010 and at most 2020.
+eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
+hgt (Height) - a number followed by either cm or in:
+If cm, the number must be at least 150 and at most 193.
+If in, the number must be at least 59 and at most 76.
+hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
+ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
+pid (Passport ID) - a nine-digit number, including leading zeroes.
+cid (Country ID) - ignored, missing or not.
+"""
+
 import re
 prog = re.compile("(\S+):(\S+)")
+hgtval = re.compile("(\d+)(cm|in)")
+hclval = re.compile("#[0-9,a-f]{6}")
+pidval = re.compile("[0-9]{9}")
 
 fields = ["byr","iyr", "eyr", "hgt", "hcl", "ecl", "pid", "cid"]
 
@@ -36,8 +55,31 @@ data = [
     "iyr:2011 ecl:brn hgt:59in"
 ]
 
+def validheight(s):
+    f = hgtval.search(s)
+    if f:
+        unit = f.groups()[1]
+        value = f.groups()[0]
+        return (unit == "cm" and 150 <= value <= 193) or (59 <= value <= 76)
+    else:
+        return False
+
 def finishrecord(d):
-    return 1 if all([x in d for x in tempfields]) else 0
+    if all([x in d for x in tempfields]):
+        # Further validation
+        for k,v in d.items():
+            if (
+                (k == "byr" and not 1920 <= int(v) <= 2002) or
+                (k == "iyr" and not 2010 <= int(v) <= 2020) or
+                (k == "eyr" and not 2020 <= int(v) <= 2030) or
+                (k == "hgt" and not validheight(v)) or
+                (k == "hcl" and not hclval.search(v)) or
+                (k == "ecl" and not v in ["amb","blu","brn","gry","grn","hzl","oth"]) or
+                (k == "pid" and not pidval.search(v))
+                ):  
+                return 0
+    else:
+        return 0
 
     
 
