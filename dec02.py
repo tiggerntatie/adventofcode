@@ -12,4 +12,8 @@ prog = re.compile("(\d+)-(\d+) (\S): (\S+)")
 with file("dec02.txt") as f:
     pwds = f.readlines()
     for p in pwds:
-        res = prog.search(p)
+        m = prog.search(p).groups()
+        c = m[3].count(m[2])
+        if m[0] <= c <= m[1]:
+            count++
+print(count)
