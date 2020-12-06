@@ -13,7 +13,7 @@ pid (Passport ID)
 cid (Country ID)
 """
 import re
-prog = re.compile("(\S{3}):(\S+)")
+prog = re.compile("(\S+):(\S+)")
 
 fields = ["byr","iyr", "eyr", "hgt", "hcl", "ecl", "pid", "cid"]
 
