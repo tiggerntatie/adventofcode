@@ -26,6 +26,15 @@ def containscolor(start, target):
                 return True
     return False
 
+def containscount(numbags, start):
+    count = 0
+    for num, color in color_dict[start]:
+        if num:
+            count += containscount(num, color)
+        else:
+            return numbags
+    return count
+
 color_dict = {}
 
 with open("dec07.txt") as f:
@@ -44,3 +53,4 @@ for color in color_dict:
     
 
 print(count)
+print(containscount(0, targetbag))
