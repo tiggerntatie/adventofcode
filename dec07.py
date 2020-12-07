@@ -19,7 +19,10 @@ targetbag = "shiny gold bag"
 
 # for each color, build a list of number/color tuples that match
 
+color_dict = {}
 for bag in data:
-    color_list = bag.split("contain")
+    color, contents = bag.split("s contain")
+    contents = contents.strip('.').split(', ')
+    color_dict[color] = [x.strip(' s')+'s' for x in contents]
     
-print(color_list)
+print(color_dict)
