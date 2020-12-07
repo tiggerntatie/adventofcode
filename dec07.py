@@ -22,7 +22,8 @@ targetbag = "shiny gold bag"
 color_dict = {}
 for bag in data:
     color, contents = bag.split("s contain")
-    contents = contents.strip('.').split(', ')
-    color_dict[color] = [x.strip(' s')+'s' for x in contents]
+    contents = [x.strip(' s') for x in contents.strip('.').split(', ')]
+    contents = [(int(x[:x.find(' ')]), x[x.find(' '):].strip()]
+    color_dict[color] = contents
     
 print(color_dict)
