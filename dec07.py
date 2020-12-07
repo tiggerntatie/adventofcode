@@ -53,4 +53,4 @@ for color in color_dict:
     
 
 # print(count)
-print(containscount(0, targetbag))
+print(containscount(1, targetbag)-1)
