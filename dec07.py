@@ -22,7 +22,7 @@ targetbag = "shiny gold bag"
 def containscolor(start, target):
     for num, color in color_dict[start]:
         if num:
-            if color == target or containscolor(color, target)
+            if color == target or containscolor(color, target):
                 return True
     return False
 
