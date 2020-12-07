@@ -12,6 +12,16 @@ data = [
     "dotted black bags contain no other bags."
     ]
     
+data = [
+    "shiny gold bags contain 2 dark red bags.",
+    "dark red bags contain 2 dark orange bags.",
+    "dark orange bags contain 2 dark yellow bags.",
+    "dark yellow bags contain 2 dark green bags.",
+    "dark green bags contain 2 dark blue bags.",
+    "dark blue bags contain 2 dark violet bags.",
+    "dark violet bags contain no other bags."
+    ]
+    
 targetbag = "shiny gold bag"
 
 # So, in this example, the number of bag colors that can eventually 
@@ -37,8 +47,8 @@ def containscount(numbags, start):
 
 color_dict = {}
 
-with open("dec07.txt") as f:
-    data = f.readlines()
+#with open("dec07.txt") as f:
+#    data = f.readlines()
 
 for bag in data:
     color, contents = bag.split("s contain")
