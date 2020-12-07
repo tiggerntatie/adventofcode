@@ -42,7 +42,7 @@ def containscount(start):
         if num:
             count += num*(1 + containscount(color))
         else:
-            return 1
+            return 0
     return count
 
 color_dict = {}
