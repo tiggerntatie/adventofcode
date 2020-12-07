@@ -40,7 +40,7 @@ def containscount(start):
     count = 0
     for num, color in color_dict[start]:
         if num:
-            count += num*containscount(color)
+            count += num*(1 + containscount(color))
         else:
             return 1
     return count
