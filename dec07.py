@@ -23,7 +23,7 @@ color_dict = {}
 for bag in data:
     color, contents = bag.split("s contain")
     contents = [x.strip(' s') for x in contents.strip('.').split(', ')]
-    contents = [(int(x[:x.find(' ')]), x[x.find(' '):].strip()]
+    contents = [(int(x[:x.find(' ')]), x[x.find(' '):].strip()) for x in contents]
     color_dict[color] = contents
     
 print(color_dict)
