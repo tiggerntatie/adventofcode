@@ -47,8 +47,8 @@ def containscount(start):
 
 color_dict = {}
 
-#with open("dec07.txt") as f:
-#    data = f.readlines()
+with open("dec07.txt") as f:
+    data = f.readlines()
 
 for bag in data:
     color, contents = bag.split("s contain")
