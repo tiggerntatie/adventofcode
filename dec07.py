@@ -39,4 +39,4 @@ for color in color_dict:
         count += 1
     
 
-print(color_dict)
+print(count)
