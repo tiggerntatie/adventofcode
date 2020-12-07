@@ -36,13 +36,13 @@ def containscolor(start, target):
                 return True
     return False
 
-def containscount(numbags, start):
+def containscount(start):
     count = 0
     for num, color in color_dict[start]:
         if num:
-            count += numbags*containscount(num, color)
+            count += num*containscount(color)
         else:
-            return numbags
+            return 1
     return count
 
 color_dict = {}
@@ -63,4 +63,4 @@ for color in color_dict:
     
 
 # print(count)
-print(containscount(1, targetbag))
+print(containscount(targetbag))
