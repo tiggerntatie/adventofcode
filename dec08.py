@@ -6,11 +6,13 @@ with open("dec08a.txt") as f:
 data = [(x[0],int(x[1])) for x in data]
 print(data)
 
-pc = 0
+pc = -1
 acc = 0
 visited = set()
 
-while pc not in visited:
+while not pc in visited:
+    pc += 1
+    print(pc)
     visited.add(pc)
     instr = data[pc]
     if instr[0] == "acc":
