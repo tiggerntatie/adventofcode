@@ -3,14 +3,15 @@
 with open("dec08a.txt") as f:
     data = [x.split() for x in f.readlines()]
     
-data = [(x[0],int(x[1])) for x in data]
+data = [[x[0],int(x[1])] for x in data]
 #print(data)
 
 length = len(data)
 acc = 0
 def isloop():
     pc = 0
-    global acc = 0
+    global acc
+    acc = 0
     visited = set()
     while not pc in visited:
         visited.add(pc)
