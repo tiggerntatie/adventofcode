@@ -39,3 +39,5 @@ for nn, x in enumerate(data):
     weak, val = checkweak(nn, xfinal)
     if weak:
         print(val)
+        break
+
