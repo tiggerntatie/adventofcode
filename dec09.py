@@ -18,7 +18,24 @@ def validnum(n):
             if num - x in p[nn+1:]:
                 return True
     return False
+
+def checkweak(start, val):
+    x = start
+    tot = data[x]
+    while tot < val:
+        x += 1
+        tot += data[x]
+    if tot == val:
+        return True, data[start]+data[x]
+    return False, 0
     
 for nn,x in enumerate(data[preamble:]):
     if not validnum(nn+preamble):
         print(x)
+        xfinal = x
+        break
+        
+for nn, x in enumerate(data):
+    weak, val = checkweak(nn, xfinal)
+    if weak:
+        print(val)
