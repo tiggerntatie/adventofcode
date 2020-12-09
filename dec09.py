@@ -9,4 +9,7 @@ else:
 with open(source) as f:
     data = [int(x) for x in f.readlines()]
     
+def validnum(n):
+    sublist = data[]
+
 print(data)
