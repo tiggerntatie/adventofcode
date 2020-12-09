@@ -1,6 +1,6 @@
 # advent of code day 9
 
-source = "dec09.txt"
+source = "dec09a.txt"
 if source == "dec09a.txt":
     preamble = 5
 else:
