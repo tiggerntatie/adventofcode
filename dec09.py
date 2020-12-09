@@ -7,6 +7,6 @@ else:
     preamble = 25
     
 with open(source) as f:
-    data = [int()]
+    data = [int(x) for x in f.readlines()]
     
 print(data)
