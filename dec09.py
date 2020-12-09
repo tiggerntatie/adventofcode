@@ -26,7 +26,8 @@ def checkweak(start, val):
         x += 1
         tot += data[x]
     if tot == val:
-        return True, data[start]+data[x]
+        sublist = data[start:x+1]
+        return True, min(sublist)+max(sublist)
     return False, 0
     
 for nn,x in enumerate(data[preamble:]):
