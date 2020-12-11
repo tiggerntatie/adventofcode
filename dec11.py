@@ -27,15 +27,15 @@ def personnear(x,y):
         tots += persons[x][y+1]
     return tots
 
-cycles = 0
-while cycles < 10:
-    print(persons)
-    cycles += 1
+while True:
     newpersons = [[0 for x in range(w)] for y in range(h)]
+    numpeeps = 0
     for x in range(w):
         for y in range(h):
             if data[y][x] == 'L':
-                newpersons[x][y]=persons[x][y]
+                peep = persons[x][y]
+                numpeeps += peep
+                newpersons[x][y]=peep
                 neighbs = personnear(x,y)
                 if neighbs == 0:
                     newpersons[x][y] = 1
