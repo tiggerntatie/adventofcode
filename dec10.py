@@ -22,6 +22,7 @@ nodemap = {}
 datalen = len(data)
 
 def numpaths(n):
+    global nodemap
     #print("entering", n)
     thisjolt = data[n]
     thesum = 0
