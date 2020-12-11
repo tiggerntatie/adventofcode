@@ -23,7 +23,7 @@ def personnear(x,y):
             tots += persons[x+1][y+1]
     if y > 0:
         tots += persons[x][y-1]
-    if y < h-1:
+    if y < h-2:
         tots += persons[x][y+1]
     return tots
 
