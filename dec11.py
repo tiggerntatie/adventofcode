@@ -28,7 +28,56 @@ def personnear(x,y):
     return tots
     
 def personfar(x,y):
-    pass
+    tots = 0
+    #upleft
+    dist = min(x,y)
+    for a in range(1,dist+1):
+        if persons[y-a][x-a]:
+            tots += 1
+            break
+    #up
+    dist = y
+    for a in range(1,dist+1):
+        if persons[y-a][x]:
+            tots += 1
+            break
+    #upright
+    dist = min(w-x-1,y)
+    for a in range(1,dist+1):
+        if persons[y-a][x+a]:
+            tots += 1
+            break
+    #right
+    dist = w-x-1
+    for a in range(1,dist+1):
+        if persons[y][x+a]:
+            tots += 1
+            break
+    #downright
+    dist = min(w-x-1,h-y-1)
+    for a in range(1,dist+1):
+        if persons[y+a][x+a]:
+            tots += 1
+            break
+    #up
+    dist = h-y-1
+    for a in range(1,dist+1):
+        if persons[y+a][x]:
+            tots += 1
+            break
+    #downleft
+    dist = min(x,h-y-1)
+    for a in range(1,dist+1):
+        if persons[y+a][x-a]:
+            tots += 1
+            break
+    #left
+    dist = x
+    for a in range(1,dist+1):
+        if persons[y][x-a]:
+            tots += 1
+            break
+    return tots
 
 neighblimit = 5  # 5 for part 2, 4 for part 1
 while True:
