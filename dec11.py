@@ -37,6 +37,7 @@ while True:
                     newpersons[x][y] = 1
                 if neighbs >= 4:
                     newpersons[x][y] = 0
+    input()
     if newpersons == persons:
         print("done")
         break
