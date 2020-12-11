@@ -1,6 +1,6 @@
 # advent of code 11
 
-with open("dec11.txt") as f:
+with open("dec11a.txt") as f:
     data = f.readlines()
 
 w = len(data[0])
@@ -13,13 +13,13 @@ def personnear(x,y):
         tots += persons[x-1][y]
         if y > 0:
             tots += persons[x-1][y-1]
-        if y < h-1:
+        if y < h-2:
             tots += persons[x-1][y+1]
     if x < w-1:
         tots += persons[x+1][y]
         if y > 0:
             tots += persons[x+1][y-1]
-        if y < h-1:
+        if y < h-2:
             tots += persons[x+1][y+1]
     if y > 0:
         tots += persons[x][y-1]
