@@ -6,9 +6,38 @@ with open("dec11a.txt") as f:
 w = len(data[0])
 h = len(data)
 persons = [[0 for x in range(w)] for y in range(h)]
-persons[1][1]=1
-print(persons)
 
-def personat(x,y):
-    pass
-    
+def personnear(x,y):
+    tots = 0
+    if x > 0:
+        tots += persons[x-1][y]
+        if y > 0:
+            tots += persons[x-1][y-1]
+        if y < h-1:
+            tots += persons[x-1][y+1]
+    if x < w-1:
+        tots += persons[x+1][y]
+        if y > 0:
+            tots += persons[x+1][y-1]
+        if y < h-1:
+            tots += persons[x+1][y+1]
+    if y > 0:
+        tots += persons[x][y-1]
+    if y < h-1:
+        tots += persons[x][y+1]
+    return tots
+
+while True:
+    newpersons = [[0 for x in range(w)] for y in range(h)]
+    for x in range(w):
+        for y in range(h):
+            if data[y][x] == 'L':
+                neighbs = personnear(x,y)
+                if neighbs == 0:
+                    newpersons[x][y] = 1
+                if neighbs >= 4:
+                    newpersons[x][y] = 0
+    if newpersons == persons:
+        print("done")
+        break
+    persons = newpersons
