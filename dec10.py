@@ -1,6 +1,6 @@
 # advent of code day 10
 
-with open("dec10.txt") as f:
+with open("dec10a.txt") as f:
     data = [0] + sorted([int(x) for x in f.readlines()])
 
 
@@ -29,5 +29,5 @@ def numpaths(n):
     nodemap[n] = thesum
     return thesum
     
-
+print(numpaths(0))
     
