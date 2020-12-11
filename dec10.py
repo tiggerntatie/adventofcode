@@ -22,16 +22,17 @@ nodemap = {}
 datalen = len(data)
 
 def numpaths(n):
-    #print("entering", n)
     if n == datalen-1:
         nodemap[n] = 1
         return 1
     thisjolt = data[n]
     thesum = 0
     for i in (1,2,3):
-        #print("branch ", i)
         if n<datalen-i and data[n+i] - thisjolt <= 3:
-            thesum += nodemap.get(n+i, numpaths(n+i))
+            if n+i in nodemap:
+                thesum +=  nodemap[n+i]
+            else:
+                thesum += numpaths(n+i)
     nodemap[n] = thesum
     return thesum
     
