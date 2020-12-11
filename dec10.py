@@ -1,6 +1,6 @@
 # advent of code day 10
 
-with open("dec10b.txt") as f:
+with open("dec10.txt") as f:
     data = [0] + sorted([int(x) for x in f.readlines()])
 
 print(data)
