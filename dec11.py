@@ -35,7 +35,9 @@ while cycles < 10:
     for x in range(w):
         for y in range(h):
             if data[y][x] == 'L':
+                newpersons[x][y]=persons[x][y]
                 neighbs = personnear(x,y)
+                print(neighbs)
                 if neighbs == 0:
                     newpersons[x][y] = 1
                 if neighbs >= 4:
