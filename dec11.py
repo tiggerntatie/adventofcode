@@ -27,7 +27,9 @@ def personnear(x,y):
         tots += persons[x][y+1]
     return tots
 
-while True:
+cycles = 0
+while cycles < 10:
+    print(persons)
     newpersons = [[0 for x in range(w)] for y in range(h)]
     for x in range(w):
         for y in range(h):
@@ -37,7 +39,6 @@ while True:
                     newpersons[x][y] = 1
                 if neighbs >= 4:
                     newpersons[x][y] = 0
-    input()
     if newpersons == persons:
         print("done")
         break
