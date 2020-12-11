@@ -3,6 +3,7 @@
 with open("dec10a.txt") as f:
     data = [0] + sorted([int(x) for x in f.readlines()])
 
+print(data)
 
 last = 0
 ones = 0
@@ -21,9 +22,11 @@ nodemap = {}
 datalen = len(data)
 
 def numpaths(n):
+    print("entering", n)
     thisjolt = data[n]
     thesum = 0
     for i in (1,2,3):
+        print("branch ", i)
         if n<datalen-i and data[n+i] - thisjolt <= 3:
             thesum += nodemap.get(n+i, numpaths(n+i))
     nodemap[n] = thesum
