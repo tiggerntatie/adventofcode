@@ -81,6 +81,7 @@ def personfar(x,y):
 
 neighblimit = 5  # 5 for part 2, 4 for part 1
 while True:
+    print(persons)
     newpersons = [[0 for x in range(w)] for y in range(h)]
     numpeeps = 0
     for x in range(w):
