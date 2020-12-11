@@ -26,7 +26,11 @@ def personnear(x,y):
     if y < h-1:
         tots += persons[y+1][x]
     return tots
+    
+def personfar(x,y):
+    pass
 
+neighblimit = 5  # 5 for part 2, 4 for part 1
 while True:
     newpersons = [[0 for x in range(w)] for y in range(h)]
     numpeeps = 0
@@ -36,10 +40,13 @@ while True:
                 peep = persons[y][x]
                 numpeeps += peep
                 newpersons[y][x]=peep
-                neighbs = personnear(x,y)
+                if neighblimit == 4:
+                    neighbs = personnear(x,y)
+                else
+                    neighbs = personfar(x,y)
                 if neighbs == 0:
                     newpersons[y][x] = 1
-                if neighbs >= 4:
+                if neighbs >= 5:
                     newpersons[y][x] = 0
     if newpersons == persons:
         print(numpeeps)
