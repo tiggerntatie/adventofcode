@@ -32,15 +32,15 @@ while True:
     numpeeps = 0
     for x in range(w):
         for y in range(h):
-            if data[y][x] == 'L':
-                peep = persons[x][y]
+            if data[x][y] == 'L':
+                peep = persons[y][x]
                 numpeeps += peep
-                newpersons[x][y]=peep
+                newpersons[y][x]=peep
                 neighbs = personnear(x,y)
                 if neighbs == 0:
-                    newpersons[x][y] = 1
+                    newpersons[y][x] = 1
                 if neighbs >= 4:
-                    newpersons[x][y] = 0
+                    newpersons[x][y][x] = 0
     if newpersons == persons:
         print(numpeeps)
         break
