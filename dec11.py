@@ -40,7 +40,7 @@ while True:
                 if neighbs == 0:
                     newpersons[y][x] = 1
                 if neighbs >= 4:
-                    newpersons[x][y][x] = 0
+                    newpersons[y][x] = 0
     if newpersons == persons:
         print(numpeeps)
         break
