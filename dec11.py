@@ -32,7 +32,7 @@ while True:
     numpeeps = 0
     for x in range(w):
         for y in range(h):
-            if data[x][y] == 'L':
+            if data[y][x] == 'L':
                 peep = persons[y][x]
                 numpeeps += peep
                 newpersons[y][x]=peep
