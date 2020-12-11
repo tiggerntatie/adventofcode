@@ -30,7 +30,7 @@ def personnear(x,y):
 cycles = 0
 while cycles < 10:
     print(persons)
-    cycle += 1
+    cycles += 1
     newpersons = [[0 for x in range(w)] for y in range(h)]
     for x in range(w):
         for y in range(h):
