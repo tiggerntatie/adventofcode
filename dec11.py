@@ -91,7 +91,7 @@ while True:
                 newpersons[y][x]=peep
                 if neighblimit == 4:
                     neighbs = personnear(x,y)
-                else
+                else:
                     neighbs = personfar(x,y)
                 if neighbs == 0:
                     newpersons[y][x] = 1
