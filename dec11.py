@@ -5,7 +5,7 @@ with open("dec11a.txt") as f:
 
 w = len(data[0])
 h = len(data)
-persons = [[0]*w]*h
+persons = [([0]*w)[:]][:]*h
 persons[1][1]=1
 print(persons)
 
