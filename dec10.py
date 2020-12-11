@@ -16,3 +16,18 @@ for i,j in enumerate(data[1:]):
 threes += 1
 
 print(ones*threes)
+
+nodemap = {}
+datalen = len(data)
+
+def numpaths(n):
+    thisjolt = data[n]
+    thesum = 0
+    for i in (1,2,3):
+        if n<datalen-i and data[n+i] - thisjolt <= 3:
+            thesum += nodemap.get(n+i, numpaths(n+i))
+    nodemap[n] = thesum
+    return thesum
+    
+
+    
