@@ -13,7 +13,7 @@ def personnear(x,y):
         tots += persons[x-1][y]
         if y > 0:
             tots += persons[x-1][y-1]
-        if y < h-2:
+        if y < h-1:
             tots += persons[x-1][y+1]
     if x < w-1:
         tots += persons[x+1][y]
