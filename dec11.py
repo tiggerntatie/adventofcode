@@ -42,6 +42,6 @@ while True:
                 if neighbs >= 4:
                     newpersons[x][y] = 0
     if newpersons == persons:
-        print("done")
+        print(numpeeps)
         break
     persons = newpersons
