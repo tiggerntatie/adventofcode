@@ -39,44 +39,44 @@ def nearchairs(x,y):
             break
     #up
     dist = y
-    for a in range(1,dist+1)=='L':
-        if data[y-a][x]:
+    for a in range(1,dist+1):
+        if data[y-a][x]=='L':
             nears.append((x,y-a))
             break
     #upright
     dist = min(w-x-1,y)
-    for a in range(1,dist+1)=='L':
-        if data[y-a][x+a]:
+    for a in range(1,dist+1):
+        if data[y-a][x+a]=='L':
             nears.append((x+a,y-a))
             break
     #right
     dist = w-x-1
-    for a in range(1,dist+1)=='L':
-        if data[y][x+a]:
+    for a in range(1,dist+1):
+        if data[y][x+a]=='L':
             nears.append((x+a,y))
             break
     #downright
     dist = min(w-x-1,h-y-1)
-    for a in range(1,dist+1)=='L':
-        if data[y+a][x+a]:
+    for a in range(1,dist+1):
+        if data[y+a][x+a]=='L':
             nears.append((x+a,y+a))
             break
     #up
     dist = h-y-1
-    for a in range(1,dist+1)=='L':
-        if data[y+a][x]:
+    for a in range(1,dist+1):
+        if data[y+a][x]=='L':
             nears.append((x,y+a))
             break
     #downleft
     dist = min(x,h-y-1)
-    for a in range(1,dist+1)=='L':
-        if data[y+a][x-a]:
+    for a in range(1,dist+1):
+        if data[y+a][x-a]=='L':
             nears.append((x-a,y+a))
             break
     #left
     dist = x
-    for a in range(1,dist+1)=='L':
-        if data[y][x-a]:
+    for a in range(1,dist+1):
+        if data[y][x-a]=='L':
             nears.append((x-a,y))
             break
     chairmap[(x,y)]=nears
