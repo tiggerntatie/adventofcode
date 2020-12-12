@@ -3,6 +3,7 @@
 with open("dec11.txt") as f:
     data = f.readlines()
 
+print(data[0])
 w = len(data[0])
 h = len(data)
 persons = [[0 for x in range(w)] for y in range(h)]
@@ -93,7 +94,7 @@ for x in range(w):
             nearchairs(x,y)
 
 iterations = 0
-while iterations < 5:
+while iterations < 1:
     iterations += 1
     newpersons = [[0 for x in range(w)] for y in range(h)]
     numpeeps = 0
