@@ -19,11 +19,13 @@ for op, val in [(x[:1],int(x[1:])) for x in data]:
     elif op == 'W':
         wx -= val
     elif op == 'R':
-        wx = wx*cos[-val%360] - wy*sin[-val%360]
-        wy = wx*sin[-val%360] + wy*cos[-val%360]
+        nwx = wx*cos[-val%360] - wy*sin[-val%360]
+        nwy = wx*sin[-val%360] + wy*cos[-val%360]
+        wx, wy = nwx, nwy
     elif op == 'L':
-        wx = wx*cos[val%360] - wy*sin[val%360]
-        wy = wx*sin[val%360] + wy*cos[val%360]
+        nwx = wx*cos[val%360] - wy*sin[val%360]
+        nwy = wx*sin[val%360] + wy*cos[val%360]
+        wx, wy = nwx, nwy
     else:
         x += val*wx
         y += val*wy
