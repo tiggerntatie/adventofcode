@@ -3,8 +3,7 @@
 with open("dec11.txt") as f:
     data = f.readlines()
 
-print(data[0])
-w = len(data[0])
+w = len(data[0].strip())
 h = len(data)
 persons = [[0 for x in range(w)] for y in range(h)]
 
