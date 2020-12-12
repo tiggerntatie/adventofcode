@@ -93,7 +93,7 @@ for x in range(w):
             nearchairs(x,y)
 
 iterations = 0
-while iterations < 1:
+while iterations < 100:
     iterations += 1
     newpersons = [[0 for x in range(w)] for y in range(h)]
     numpeeps = 0
