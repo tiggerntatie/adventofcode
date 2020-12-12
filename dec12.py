@@ -27,5 +27,6 @@ for op, val in [(x[:1],int(x[1:])) for x in data]:
     else:
         x += val*wx
         y += val*wy
+    print(wx, wy)
 
 print(abs(x)+abs(y))
