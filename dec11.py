@@ -1,6 +1,6 @@
 # advent of code 11
 
-with open("dec11a.txt") as f:
+with open("dec11.txt") as f:
     data = f.readlines()
 
 w = len(data[0])
