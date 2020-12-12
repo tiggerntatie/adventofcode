@@ -1,6 +1,6 @@
 # advent of code day 12
 
-with open("dec12a.txt") as f:
+with open("dec12.txt") as f:
     data = [s.strip() for s in f.readlines()]
 
 sin = {0:0, 90:1, 180:0, 270:-1}
