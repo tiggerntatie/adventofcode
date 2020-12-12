@@ -86,13 +86,15 @@ def nearchairs(x,y):
 
 neighblimit = 5  # 5 for part 2, 4 for part 1
 # map out the chairs
+print(w,h)
 for x in range(w):
     for y in range(h):
         if data[y][x] == 'L':
             nearchairs(x,y)
 
-while True:
-    #print(persons)
+iterations = 0
+while iterations < 5:
+    iterations += 1
     newpersons = [[0 for x in range(w)] for y in range(h)]
     numpeeps = 0
     for x in range(w):
