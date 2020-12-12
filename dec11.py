@@ -92,7 +92,7 @@ for x in range(w):
             nearchairs(x,y)
 
 while True:
-    print(persons)
+    #print(persons)
     newpersons = [[0 for x in range(w)] for y in range(h)]
     numpeeps = 0
     for x in range(w):
