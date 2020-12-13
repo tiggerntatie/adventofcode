@@ -15,7 +15,7 @@ while not finished:
             result = bus*(t-mytime)
             finished = True
     t += 1
-    if t-mytime > 100:
+    if t-mytime > 1000:
         finished = True
     
-#print(result)
+print(result)
