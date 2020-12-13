@@ -10,7 +10,6 @@ available = list(map(lambda x: x if x=='x' else int(x), data[1].strip().split(',
 idmap = {key:val for val, key in filter(lambda x: x[1]!='x', enumerate(available))}
 idlist = [id for id in idmap]
 
-lastid = idlist[0]
 step = idlist[0]
 for id in idlist[1:]:
     delta = idmap[id]
@@ -18,6 +17,7 @@ for id in idlist[1:]:
         if not (i-delta)%step:
             # found a divisor of solution
             print('**',i-delta)
+            step = step*id
     
 
 
