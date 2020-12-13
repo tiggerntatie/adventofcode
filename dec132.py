@@ -1,13 +1,15 @@
-# advent of code day 13
+# advent of code day 13 part 2
 
 with open("dec13.txt") as f:
     data = f.readlines()
 
 mytime = int(data[0])
-available = list(map(lambda x: int(x), filter(lambda x: x!='x', data[1].strip().split(','))))
+
+available = list(map(lambda x: x if x=='x' else int(x), data[1].strip().split(',')))
+print(available)
 
 t = mytime
-finished = False
+finished = True
 while not finished:
     for bus in available:
         if not t%bus:
