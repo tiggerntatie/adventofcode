@@ -13,9 +13,10 @@ idlist = [id for id in idmap]
 print(idlist)
 for n, id in enumerate(idlist[:-1]):
     delta = idmap[idlist[n+1]]-idmap[idlist[n]]
+    print(delta)
     for i in range(0,id*idlist[n+1],id):
         print(i)
-        if i%idlist[n+1] == delta:
+        if not (i+delta)%idlist[n+1]:
             print('**',i)
     
 
