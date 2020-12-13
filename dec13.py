@@ -18,4 +18,4 @@ while not finished:
     t += 1
     finished = True
     
-print(result)
+#print(result)
