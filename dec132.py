@@ -13,7 +13,7 @@ idlist = [id for id in idmap]
 lastn = 0
 lastid = idlist[0]
 for id in idlist[1:]:
-    delta = idmap[id-idmap[lastid]
+    delta = idmap[id]-idmap[lastid]
     print(delta)
     for i in range(0,lastid*id,id):
         print(i)
