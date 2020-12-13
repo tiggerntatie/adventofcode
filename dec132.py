@@ -7,12 +7,13 @@ with open("dec13a.txt") as f:
 available = list(map(lambda x: x if x=='x' else int(x), data[1].strip().split(',')))
 #maxid = max(filter(lambda x: x!='x', available))
 #minid = min(filter(lambda x: x!='x', available))
-idmap = {key:val for val, key in filter(lambda x,y: y!='x', enumerate(available))}
+idmap = {key:val for val, key in filter(lambda x: x[1]!='x', enumerate(available))}
 idlist = [id for id in idmap]
 
 print(idlist)
 for n, id in enumerate(idlist[:-1]):
-    print(n)
+    for i in range(0,id*idlist[n+1],id)
+    print(i)
     
 
 
