@@ -12,15 +12,16 @@ idlist = [id for id in idmap]
 
 print(idmap)
 step = idlist[0]
+start = 0
 for id in idlist[1:]:
     delta = idmap[id]
     print("delta ", delta)
-    for i in range(0,step*id,id):
+    for i in range(start,step*id,id):
         if not (i-delta)%step:
             # found a divisor of solution
             print('**',i-delta)
             step = step*id
-    
+            start = i-delta    
 
 
 """
