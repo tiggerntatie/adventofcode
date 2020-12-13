@@ -17,7 +17,7 @@ for id in idlist[1:]:
     print(delta)
     for i in range(0,lastid*id,id):
         print(i)
-        if not (i+delta)%id:
+        if not (i-delta)%lastid:
             print('**',i)
     
 
