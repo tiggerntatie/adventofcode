@@ -5,15 +5,17 @@ with open("dec13a.txt") as f:
 
 
 available = list(map(lambda x: x if x=='x' else int(x), data[1].strip().split(',')))
-maxid = max(filter(lambda x: x!='x', available))
-minid = min(filter(lambda x: x!='x', available))
-idmap = {key:val for val, key in enumerate(available)}
+#maxid = max(filter(lambda x: x!='x', available))
+#minid = min(filter(lambda x: x!='x', available))
+idmap = {key:val for val, key in filter(lambda x,y: y!='x', enumerate(available))}
+idlist = [id for id in idmap]
 
-print(idmap)
+print(idlist)
+for n, id in enumerate(idlist[:-1]):
+    print(n)
+    
 
-print (available, maxid, minid)
 
-t = maxid
 """
 finished = True
 while not finished:
