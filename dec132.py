@@ -13,8 +13,6 @@ for id in idlist[1:]:
     delta = idmap[id]
     for i in range(start,step*id,step):
         if not (i+delta)%id:
-            # found a divisor of solution
             step = step*id
             start = i    
 print(start)
-
