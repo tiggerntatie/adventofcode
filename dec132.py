@@ -7,7 +7,7 @@ with open("dec13a.txt") as f:
 available = list(map(lambda x: x if x=='x' else int(x), data[1].strip().split(',')))
 maxid = max(filter(lambda x: x!='x', available))
 minid = min(filter(lambda x: x!='x', available))
-idmap = {key, val for val, key in enumerate(available)}
+idmap = {key:val for val, key in enumerate(available)}
 
 print(idmap)
 
