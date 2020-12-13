@@ -10,13 +10,14 @@ available = list(map(lambda x: x if x=='x' else int(x), data[1].strip().split(',
 idmap = {key:val for val, key in filter(lambda x: x[1]!='x', enumerate(available))}
 idlist = [id for id in idmap]
 
-print(idlist)
-for n, id in enumerate(idlist[:-1]):
-    delta = idmap[idlist[n+1]]-idmap[idlist[n]]
+lastn = 0
+lastid = idlist[0]
+for id in idlist[1:]:
+    delta = idmap[id-idmap[lastid]
     print(delta)
-    for i in range(0,id*idlist[n+1],id):
+    for i in range(0,lastid*id,id):
         print(i)
-        if not (i+delta)%idlist[n+1]:
+        if not (i+delta)%id:
             print('**',i)
     
 
