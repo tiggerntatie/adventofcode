@@ -6,6 +6,8 @@ with open("dec13a.txt") as f:
 mytime = int(data[0])
 available = map(lambda x: int(x), filter(lambda x: x!='x', data[1].strip().split(',')))
 
+print(available)
+
 t = mytime
 finished = False
 while not finished:
@@ -14,5 +16,6 @@ while not finished:
             result = bus*(t-mytime)
             finished = True
     t += 1
+    finished = True
     
 print(result)
