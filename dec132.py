@@ -19,7 +19,7 @@ for id in idlist[1:]:
     for i in range(start,step*id,step):
         if not (i+delta)%id:
             # found a divisor of solution
-            print('**',i-delta)
+            print('**',i)
             step = step*id
             start = i-delta    
 
