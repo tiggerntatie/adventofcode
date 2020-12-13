@@ -10,11 +10,12 @@ t = mytime
 finished = False
 while not finished:
     for bus in available:
-        print(bus)
+        print(bus, t, t%bus)
         if not t%bus:
             result = bus*(t-mytime)
             finished = True
     t += 1
-    finished = True
+    if t-mytime > 100:
+        finished = True
     
 #print(result)
