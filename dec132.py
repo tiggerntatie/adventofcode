@@ -8,7 +8,6 @@ idlist = [id for id in idmap]
 
 step = idlist[0]
 start = 0
-answer = 0
 for id in idlist[1:]:
     delta = idmap[id]
     for i in range(start,step*id,step):
