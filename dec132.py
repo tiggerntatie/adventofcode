@@ -21,7 +21,7 @@ for id in idlist[1:]:
             # found a divisor of solution
             print('**',i)
             step = step*id
-            start = i-delta    
+            start = i    
 
 
 """
