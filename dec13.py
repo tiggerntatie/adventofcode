@@ -6,5 +6,13 @@ with open("dec13a.txt") as f:
 mytime = int(data[0])
 available = filter(lambda x: x!='x', data[1].strip().split(','))
 
-print(mytime)
-print(available)
+t = mytime
+finished = False
+while not finished:
+    for bus in available:
+        if not t%bus:
+            result = bus*(t-mytime)
+            finished = True
+    t += 1
+    
+print(result)
