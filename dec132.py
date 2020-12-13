@@ -3,12 +3,18 @@
 with open("dec13a.txt") as f:
     data = f.readlines()
 
-mytime = int(data[0])
 
 available = list(map(lambda x: x if x=='x' else int(x), data[1].strip().split(',')))
-maxid = max(filter(lambda x: x!='x', available)))
+maxid = max(filter(lambda x: x!='x', available))
+minid = min(filter(lambda x: x!='x', available))
+idmap = {key, val for val, key in enumerate(available)}
 
-t = mytime
+print(idmap)
+
+print (available, maxid, minid)
+
+t = maxid
+"""
 finished = True
 while not finished:
     for bus in available:
@@ -16,5 +22,5 @@ while not finished:
             result = bus*(t-mytime)
             finished = True
     t += 1
-
-print(result)
+"""
+##print(result)
