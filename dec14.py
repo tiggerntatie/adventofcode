@@ -3,7 +3,7 @@
 import re
 memread = re.compile(".*\[(\d+)\] = (\d+)")
 
-currpassmask = 0
+currmask = 0
 currsetmask = 0
 multipliers = 0
 mem = {}
@@ -19,13 +19,20 @@ with open("dec14b.txt") as f:
             for i in range(masksetlen):
                 found = mask[::-1].find('X', found+1)
                 multipliers.append(2**found)
-            print(multipliers)
-            currpassmask = int('0b'+mask.replace('1','0').replace('X','1'), 2)
             currsetmask = int('0b'+mask.replace('X','0'), 2)
+            currmask = int('0b'+mask.replace('0','1').replace('X','0'))
         else:
             # mem command
             res = memread.match(cmd)
             addr, val = (int(x) for x in res.groups())
-            mem[addr] = (val & currpassmask) | currsetmask
+            newaddr = addr & currmask  # clear the X bits
+            newaddr |= currsetmask  # set certain bits
+            for i in range(masksetlen+1):
+                tempaddr = newaddr
+                tempi = i
+                for n in multipliers:
+                    tempaddr += (tempi&1)*n
+                    tempi /= 2
+                mem[tempaddr] = val
 
 print(sum(mem.values()))
