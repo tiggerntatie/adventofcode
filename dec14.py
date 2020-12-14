@@ -3,7 +3,8 @@
 import re
 memread = re.compile(".*\[(\d+)\] = (\d+)")
 
-currmask = 0
+currpassmask = 0
+currsetmask = 0
 mem = {}
 
 with open("dec14a.txt") as f:
@@ -11,9 +12,13 @@ with open("dec14a.txt") as f:
         if cmd[1] == 'a':
             # mask command
             mask = cmd[7:]
+            curpassmask = int('0b'+mask.replace('X','1').replace('1','0'), 2)
+            currsetmask = int('0b'+mask.replace('X','0'), 2)
         else:
             # mem command
             print(cmd)
             res = memread.match(cmd)
             addr, val = res.groups()
-            print(addr, val)
+            mem[addr] = (val & currpassmask) | currsetmask
+
+print(sum(mem.values()))
