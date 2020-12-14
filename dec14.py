@@ -11,7 +11,6 @@ mem = {}
 with open("dec14.txt") as f:
     for cmd in f.readlines():
         if cmd[1] == 'a':
-            maskcount += 1
             # mask command
             mask = cmd[7:]
             masksetlen = mask.count('X')
