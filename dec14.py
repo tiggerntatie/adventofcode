@@ -13,5 +13,8 @@ with open("dec14a.txt") as f:
             mask = cmd[7:]
         else:
             # mem command
+            print(cmd)
             res = memread.match(cmd)
-            print(dir(res))
+            addr = res.groups(0)
+            val = res.groups(1)
+            print(addr, val)
