@@ -7,14 +7,11 @@ currmask = 0
 currsetmask = 0
 multipliers = 0
 mem = {}
-maskcount = 0
 
 with open("dec14.txt") as f:
     for cmd in f.readlines():
         if cmd[1] == 'a':
             maskcount += 1
-            if maskcount == 10:
-                break
             # mask command
             mask = cmd[7:]
             masksetlen = mask.count('X')
