@@ -31,8 +31,9 @@ with open("dec14b.txt") as f:
                 tempaddr = newaddr
                 tempi = i
                 for n in multipliers:
+                    print(type(tempi))
                     tempaddr += (tempi&1)*n
-                    tempi /= 2
+                    tempi //= 2
                 mem[tempaddr] = val
 
 print(sum(mem.values()))
