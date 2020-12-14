@@ -7,7 +7,7 @@ currpassmask = 0
 currsetmask = 0
 mem = {}
 
-with open("dec14a.txt") as f:
+with open("dec14.txt") as f:
     for cmd in f.readlines():
         if cmd[1] == 'a':
             # mask command
