@@ -7,7 +7,7 @@ currmask = 0
 currsetmask = 0
 multipliers = 0
 mem = {}
-maskcount = n
+maskcount = 0
 
 with open("dec14.txt") as f:
     for cmd in f.readlines():
