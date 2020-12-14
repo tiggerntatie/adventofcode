@@ -15,6 +15,5 @@ with open("dec14a.txt") as f:
             # mem command
             print(cmd)
             res = memread.match(cmd)
-            addr = res.groups(0)
-            val = res.groups(1)
+            addr, val = res.groups()
             print(addr, val)
