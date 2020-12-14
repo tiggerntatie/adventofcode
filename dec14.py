@@ -12,7 +12,7 @@ with open("dec14a.txt") as f:
         if cmd[1] == 'a':
             # mask command
             mask = cmd[7:]
-            curpassmask = int('0b'+mask.replace('X','1').replace('1','0'), 2)
+            curpassmask = int('0b'+mask.replace('1','0').replace('X','1'), 2)
             currsetmask = int('0b'+mask.replace('X','0'), 2)
         else:
             # mem command
