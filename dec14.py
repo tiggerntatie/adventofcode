@@ -19,6 +19,7 @@ with open("dec14a.txt") as f:
             print(cmd)
             res = memread.match(cmd)
             addr, val = (int(x) for x in res.groups())
+            print(addr, (val & currpassmask) | currsetmask)
             mem[addr] = (val & currpassmask) | currsetmask
 
 print(sum(mem.values()))
