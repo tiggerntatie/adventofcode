@@ -27,7 +27,7 @@ with open("dec14b.txt") as f:
             addr, val = (int(x) for x in res.groups())
             newaddr = addr & currmask  # clear the X bits
             newaddr |= currsetmask  # set certain bits
-            for i in range(masksetlen+1):
+            for i in range(2**masksetlen):
                 tempaddr = newaddr
                 tempi = i
                 for n in multipliers:
