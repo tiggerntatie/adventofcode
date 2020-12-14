@@ -1,7 +1,7 @@
 # advent of code day 14
 
 import re
-memread = re.compile("[=\[(d+)\] = (d+)")
+memread = re.compile("[=\[(\d+)\] = (\d+)")
 
 currmask = 0
 mem = {}
