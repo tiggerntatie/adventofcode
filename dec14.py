@@ -13,5 +13,5 @@ with open("dec14a.txt") as f:
             mask = cmd[7:]
         else:
             # mem command
-            res = re.match(cmd)
+            res = memread.match(cmd)
             print(dir(res))
