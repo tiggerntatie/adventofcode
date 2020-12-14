@@ -5,13 +5,21 @@ memread = re.compile(".*\[(\d+)\] = (\d+)")
 
 currpassmask = 0
 currsetmask = 0
+multipliers = 0
 mem = {}
 
-with open("dec14.txt") as f:
+with open("dec14b.txt") as f:
     for cmd in f.readlines():
         if cmd[1] == 'a':
             # mask command
             mask = cmd[7:]
+            masksetlen = mask.count('X')
+            multipliers = []
+            found = -1
+            for i in range(masksetlen):
+                found = mask[::-1].find('X', found+1)
+                multipliers.append(2**found)
+            print(multipliers)
             currpassmask = int('0b'+mask.replace('1','0').replace('X','1'), 2)
             currsetmask = int('0b'+mask.replace('X','0'), 2)
         else:
