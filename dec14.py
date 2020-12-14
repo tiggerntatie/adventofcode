@@ -20,7 +20,7 @@ with open("dec14b.txt") as f:
                 found = mask[::-1].find('X', found+1)
                 multipliers.append(2**found)
             currsetmask = int('0b'+mask.replace('X','0'), 2)
-            currmask = int('0b'+mask.replace('0','1').replace('X','0'))
+            currmask = int('0b'+mask.replace('0','1').replace('X','0'), 2)
         else:
             # mem command
             res = memread.match(cmd)
