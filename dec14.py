@@ -8,7 +8,7 @@ currsetmask = 0
 multipliers = 0
 mem = {}
 
-with open("dec14b.txt") as f:
+with open("dec14.txt") as f:
     for cmd in f.readlines():
         if cmd[1] == 'a':
             # mask command
@@ -33,7 +33,6 @@ with open("dec14b.txt") as f:
                 for n in multipliers:
                     tempaddr += (tempi&1)*n
                     tempi //= 2
-                print("assign ", val, " to ", tempaddr)
                 mem[tempaddr] = val
 
 print(sum(mem.values()))
