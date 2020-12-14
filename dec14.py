@@ -16,9 +16,9 @@ with open("dec14a.txt") as f:
             currsetmask = int('0b'+mask.replace('X','0'), 2)
         else:
             # mem command
-            print(cmd)
             res = memread.match(cmd)
             addr, val = (int(x) for x in res.groups())
+            print(currpassmask, currsetmask)
             print(addr, (val & currpassmask) | currsetmask)
             mem[addr] = (val & currpassmask) | currsetmask
 
