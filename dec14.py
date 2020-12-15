@@ -9,7 +9,7 @@ multipliers = 0
 mem = {}
 
 with open("dec14.txt") as f:
-    for cmd in f.readlines():
+    for cmd in [x.strip() for x in f.readlines()]:
         if cmd[1] == 'a':
             # mask command
             mask = cmd[7:]
