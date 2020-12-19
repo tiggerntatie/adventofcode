@@ -60,6 +60,7 @@ def getrules(n):  # return a list of rule strings in "aaab" format
                         xvectors.append(i*[vector[0]])
                     else:
                         xvectors.append(i*[vector[0]]+[vector[-1]])
+                    print("xvectors: ", xvectors)
                     for vec in xvectors:
                         finalrules.extend(getruleslist(vec))
             else:
