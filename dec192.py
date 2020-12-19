@@ -1,11 +1,11 @@
 # advent of code day 19
-print("******* advent of code day 19 ***********")
+print("******* advent of code day 19 part 2 ***********")
 
 import re, sys
 
 rule = re.compile("([\d]+): ([\S]+) ?([\S]+)? ?([\S]+)? ?([\S]+)? ?([\S]+)?")
 
-with open("dec192.txt") as f:
+with open("dec19b.txt") as f:
     data = [s.strip() for s in f.readlines()]
     mid = data.index("")
     rules = data[:mid]
@@ -27,7 +27,11 @@ for r in rules:
         ruletree[n] = [[int(x) for x in args[:pipe]], [int(x) for x in args[pipe+1:]]]
     else:
         ruletree[n] = [[int(x) for x in args],]
-        
+
+## Add extra rules:
+ruletree[8] = [[42], [42, 8]]
+ruletree[11] = [[42, 31], [42, 11, 31]]
+print(ruletree)
 
 def getruleslist(nl):  # return a list of rules strings from a list of numbers
     if not nl:
@@ -48,23 +52,25 @@ def getrules(n):  # return a list of rule strings in "aaab" format
         for vector in ruletree[n]:
             if n in vector:
                 # make recursive vectors - special for 8 and 11
+                print("SPECIAL HANDLING")
                 xvectors = []
+                print(vector)
                 for i in range(2,4):
                     if len(vector) == 2:
                         xvectors.append(i*[vector[0]])
                     else:
-                        xvectors.append(i*[vector[0]]+vector[-1])
-                    print(xvectors)
+                        xvectors.append(i*[vector[0]]+[vector[-1]])
                     for vec in xvectors:
                         finalrules.extend(getruleslist(vec))
             else:
                 finalrules.extend(getruleslist(vector))
+        #print("new finalrules: ", len(finalrules))
         return finalrules
 
 masterlist = set()
 count = 0
 for n in ruletree:
-    print(count)
+    #print(count)
     count += 1
     [masterlist.add(x) for x in getrules(n)]
 
