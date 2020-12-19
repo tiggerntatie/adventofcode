@@ -49,7 +49,7 @@ def getrules(n):  # return a list of rule strings in "aaab" format
             if n in vector:
                 # make recursive vectors - special for 8 and 11
                 xvectors = []
-                for i in range(2,8):
+                for i in range(2,4):
                     if len(vector) == 2:
                         xvectors.append(i*[vector[0]])
                     else:
