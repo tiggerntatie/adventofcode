@@ -5,7 +5,8 @@ import re, sys
 
 rule = re.compile("([\d]+): ([\S]+) ?([\S]+)? ?([\S]+)? ?([\S]+)? ?([\S]+)?")
 
-with open("dec19b.txt") as f:
+fname = "dec19b.txt"
+with open(fname) as f:
     data = [s.strip() for s in f.readlines()]
     mid = data.index("")
     rules = data[:mid]
@@ -29,53 +30,48 @@ for r in rules:
         ruletree[n] = [[int(x) for x in args],]
 
 ## Add extra rules:
-ruletree[8] = [[42], [42, 8]]
-ruletree[11] = [[42, 31], [42, 11, 31]]
-print(ruletree)
+if True:
+    ruletree[8] = [[42], [42, 8]]
+    ruletree[11] = [[42, 31], [42, 11, 31]]
 
-def getruleslist(nl):  # return a list of rules strings from a list of numbers
-    if not nl:
-        return [""]
-    rules = getrules(nl[0])
-    otherrules = getruleslist(nl[1:])
-    finalrules = []
-    for rule in rules:
-        for otherrule in otherrules:
-            finalrules.append("".join(rule) + "".join(otherrule))
-    return finalrules
-                
-def getrules(n):  # return a list of rule strings in "aaab" format
-    if ruletree[n] in ["a","b"]:
-        return [ruletree[n],]
-    else:
-        finalrules = []
-        for vector in ruletree[n]:
-            if n in vector:
-                # make recursive vectors - special for 8 and 11
-                print("SPECIAL HANDLING")
-                xvectors = []
-                print(vector)
-                for i in range(2,4):
-                    if len(vector) == 2:
-                        xvectors.append(i*[vector[0]])
-                    else:
-                        xvectors.append(i*[vector[0]]+[vector[-1]])
-                    print("xvectors: ", xvectors)
-                    for vec in xvectors:
-                        finalrules.extend(getruleslist(vec))
+# return match T/F and remaining message
+def matchvector(v, m):
+    for n in v:
+        if not m:
+            # out of message chars
+            return False, ""
+        if n in ['a','b']:
+            if n == m[0]:
+                m = m[1:]
             else:
-                finalrules.extend(getruleslist(vector))
-        #print("new finalrules: ", len(finalrules))
-        return finalrules
+                # mismatched literal. no match.
+                return False, ""
+        else:
+            ok, m = matchrule(n, m)
+            if not ok:
+                return False, m
+    return True, m
+            
+# return match T/F and remaining message            
+def matchrule(n, m):
+    step = 0
+    for vector in ruletree[n]:
+        step += 1
+        ok, msg = matchvector(vector, m)
+        if ok:
+            return True, msg
+    return False, msg
 
-masterlist = set()
+
+"""
+bbabbbbaabaabba, ababaaaaaabaaab, and ababaaaaabbbaba
+"""
 count = 0
-for n in ruletree:
-    #print(count)
-    count += 1
-    [masterlist.add(x) for x in getrules(n)]
+for msg in messages:
+    ok, m = matchrule(0, msg)
+    if ok and not m:
+        print(msg)
+        count += 1
 
-print(len(masterlist))
-    
-print(sum([msg in masterlist for msg in messages]))
-    
+print(count)            
+            

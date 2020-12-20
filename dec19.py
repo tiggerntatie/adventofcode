@@ -14,7 +14,6 @@ with open("dec19.txt") as f:
     
 ruletree = {}
 
-done = False
 for r in rules:
     m = rule.match(r)
     n = int(m.groups()[0])
